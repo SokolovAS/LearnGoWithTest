@@ -1,8 +1,8 @@
 package main
 
-func Sum(a []int) int{
+func Sum(a []int) int {
 	var res int
-	for _, v := range a{
+	for _, v := range a {
 		res += v
 	}
 	return res
