@@ -9,7 +9,6 @@ const emptyString = ""
 const spanishLanguage = "Spanish"
 const frenchLanguage = "French"
 
-
 func Hello(name string, language string) string {
 	if name == emptyString {
 		name = "World"
