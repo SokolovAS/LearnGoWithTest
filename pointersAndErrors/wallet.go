@@ -13,7 +13,7 @@ type Wallet struct {
 	balance Bitcoin
 }
 
-func (w *Wallet) Deposit(deposit Bitcoin){
+func (w *Wallet) Deposit(deposit Bitcoin) {
 	w.balance += deposit
 }
 
@@ -26,7 +26,7 @@ func (b Bitcoin) String() string {
 }
 
 func (w *Wallet) Withdraw(amount Bitcoin) error {
-	if amount > w.balance{
+	if amount > w.balance {
 		return ErrInsufficientFunds
 	}
 	w.balance -= amount

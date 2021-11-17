@@ -2,7 +2,7 @@ package main
 
 import "testing"
 
-func assertBalance(t testing.TB, w Wallet, want Bitcoin){
+func assertBalance(t testing.TB, w Wallet, want Bitcoin) {
 	t.Helper()
 	got := w.Balance()
 	if got != want {
@@ -10,7 +10,7 @@ func assertBalance(t testing.TB, w Wallet, want Bitcoin){
 	}
 }
 
-func assertError(t testing.TB, got, want error){
+func assertError(t testing.TB, got, want error) {
 	t.Helper()
 	if got == nil {
 		t.Errorf("Did not get an error but wonted one")
@@ -20,14 +20,13 @@ func assertError(t testing.TB, got, want error){
 	}
 }
 
-func assertNoError(t testing.TB, got error){
+func assertNoError(t testing.TB, got error) {
 	if got != nil {
 		t.Fatal("got an error but didn't want one")
 	}
 }
 
-
-func TestWallet(t *testing.T)  {
+func TestWallet(t *testing.T) {
 	t.Run("Deposit", func(t *testing.T) {
 		wallet := Wallet{}
 		wallet.Deposit(Bitcoin(10))
@@ -37,7 +36,7 @@ func TestWallet(t *testing.T)  {
 	t.Run("Withdraw", func(t *testing.T) {
 		wallet := Wallet{balance: Bitcoin(20)}
 
-		got :=wallet.Withdraw(Bitcoin(10))
+		got := wallet.Withdraw(Bitcoin(10))
 
 		assertNoError(t, got)
 		assertBalance(t, wallet, Bitcoin(10))
